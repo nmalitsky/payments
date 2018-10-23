@@ -1,0 +1,9 @@
+<td *ngFor="let col of columns; last as isLast; first as isFirst; let i = index;">
+
+  <span *ngIf="i < 2">{{row[col]}}</span>
+
+  <app-table-td-month [cost]="row['Стоимость']" [checked]="row[col]" [updateCost]="updateCost" *ngIf="i >1 && !isLast"></app-table-td-month>
+
+  <button class="btn btn-success" (click)="onDelete(row)" *ngIf="isLast">Удалить</button>
+
+</td>

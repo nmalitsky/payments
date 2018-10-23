@@ -1,0 +1,14 @@
+<div class="payment-table">
+  <p>
+    <app-form-add-payment [addPayment]="addPaymentFunc"></app-form-add-payment>
+  </p>
+  <table>
+    <tr>
+      <th *ngFor="let col of columns">{{col}}</th>
+    </tr>
+    <tr *ngFor="let row of rows" app-table-row [row]="row" [columns]="columns" [deleteRow]="deleteRowFunc"
+        [updateCost]="updateCostFunc">
+    </tr>
+  </table>
+  <p>Израсходовано средств: {{totalCost}}</p>
+</div>

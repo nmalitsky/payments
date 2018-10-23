@@ -1,0 +1,73 @@
+<div>
+  <form (ngSubmit)="onSubmit()" #formAddPayment="ngForm">
+    <div class="row">
+      <div class="col m3">
+        <div class="form-group">
+          <input type="text" class="form-control" id="name" required
+                 [(ngModel)]="model.name" name="name" #name="ngModel"
+
+          >
+          <label for="name">наименование платежа</label>
+          <div [hidden]="name.valid || name.pristine"
+               class="alert alert-danger">
+            Наименование платежа обязательно!
+          </div>
+        </div>
+      </div>
+      <div class="col m3">
+        <div class="form-group">
+          <input type="number" class="form-control" id="cost" required min="0"
+                 [(ngModel)]="model.cost" name="cost" #cost="ngModel"
+                 >
+          <label for="cost">стоимость</label>
+          <div [hidden]="cost.valid || cost.pristine"
+               class="alert alert-danger">
+            Стоимость обязательна!
+          </div>
+        </div>
+      </div>
+      <div class="col m6">
+        <button type="submit" class="btn btn-success" [disabled]="!formAddPayment.form.valid">Добавить</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!--
+<div class="row">
+  <div class="col-sm-4 form-inline">
+    <input type="text"
+           placeholder="наименование платежа*"
+           class="form-control"
+           required
+           minlength="4"
+           [(ngModel)]="model.name"
+           #name="ngModel">
+
+    <div *ngIf="model.name.invalid && (model.name.dirty || model.name.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="model.name.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="model.name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 form-inline">
+    <input type="number"
+           placeholder="стоимость"
+           class="form-control"
+           required
+           min="0"
+           minlength="1"
+           [(ngModel)]="model.cost"
+           #name="ngModel"
+    >
+  </div>
+  <div class="col-sm-4 form-inline">
+    <button class="form-control" (click)="onAdd()">Добавить</button>
+  </div>
+</div>
+-->
+
